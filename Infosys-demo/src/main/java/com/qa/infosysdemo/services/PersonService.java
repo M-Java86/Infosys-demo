@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PersonService {
+public class PersonService<Person> {
 	
 	private List<Person> people = new ArrayList<> ();
 	
@@ -24,7 +24,7 @@ public class PersonService {
 	}
 	
 	public Person updatePerson(int id, Person person) {
-		//Remove exisiting Person with matching 'id'
+		//Remove existing Person with matching 'id'
 		this.people.remove(id);
 		// Add new Person in its Place
 		this.people.add(id, person);
