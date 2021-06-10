@@ -1,13 +1,20 @@
 package com.qa.infosysdemo.controller;
 
+import java.util.List;
+
+import javax.websocket.server.PathParam;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.qa.infosysdemo.services.PersonService;
 
 @SuppressWarnings("hiding")
-public class PersonController<PersonService> {
+public class PersonController<PersonService, Person> {
 	
 	private PersonService service {
 		
@@ -20,9 +27,6 @@ public class PersonController<PersonService> {
 		//CRUD methods
 	}
 
-	
-	
-	
 	@PostMapping("/create")
     public Person addPerson(@RequestBody Person person) {
         return this.service.addPerson(person);
@@ -43,3 +47,4 @@ public class PersonController<PersonService> {
         return this.service.removePerson(id);
     }
 }
+
