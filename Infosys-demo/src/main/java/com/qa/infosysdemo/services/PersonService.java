@@ -24,8 +24,18 @@ public class PersonService {
 	}
 	
 	public Person updatePerson(int id, Person person) {
-		//Remove 
+		//Remove exisiting Person with matching 'id'
+		this.people.remove(id);
+		// Add new Person in its Place
+		this.people.add(id, person);
+		//Return updated Person from List 
+		return this.people.get(id);
 		
+	}
+	
+	public Person removePerson(int id) {
+		// Remove Person and return it 
+		return  this.people.remove(id);
 	}
 
 
